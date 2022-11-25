@@ -56,7 +56,6 @@ public class Cryptographer {
 //        thirdDigit %= 10;
         thirdDigit = (thirdDigit + 10 <= 16 ? thirdDigit + 10 : thirdDigit);
 //        fourthDigit %= 10;
-        fourthDigit = (fourthDigit + 10 <= 16 ? fourthDigit + 10 : fourthDigit);
 
 
         firstDigit -= 7;
