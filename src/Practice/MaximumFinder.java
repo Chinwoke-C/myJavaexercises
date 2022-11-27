@@ -13,7 +13,7 @@ public class MaximumFinder {
         double number3 = input.nextDouble();
 
         double result = maximum(number1, number2, number3);
-        System.out.printf("The maximum value is: %f%n", result);
+        System.out.printf("The maximum value is: %.1f%n", result);
 
     }
     private static double maximum(double x, double y, double z) {
