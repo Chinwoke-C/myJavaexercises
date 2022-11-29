@@ -1,5 +1,6 @@
 package Diary;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 public class Main {
@@ -62,6 +63,7 @@ public class Main {
                 Press 2 -> Find Entry by Id
                 Press 3 -> Get total number of entries
                 Press 4 -> lock diary
+                press 5 -> update diary
                 """;
         String userInput = input(diaryMenu);
         switch (Integer.parseInt(userInput)){
@@ -69,6 +71,7 @@ public class Main {
             case 2 : findById();
             case 3: getTotalNumberOfEntries();
             case 4: lockDiary();
+            case 5: updateDiary();
         }
 
     }
@@ -95,11 +98,33 @@ public class Main {
     }
 
     private static String input(String prompt){
-        print(prompt);
-        return keyboardInput.nextLine();
+//        print(prompt);
+//        return keyboardInput.nextLine();
+       return JOptionPane.showInputDialog(prompt);
     }
     private static void print(String prompt){
-        System.out.println(prompt);
+//        System.out.println(prompt);
+        JOptionPane.showMessageDialog(null, prompt);
+    }
+    private static void updateDiary(){
+        print("Enter entry you want to be updated: ");
+        String input = keyboardInput.nextLine();
+        Entry oldInput = diary.searchDiaries(input);
+        if (oldInput == null){
+            print("Cannot find entry");
+        }
+        print("Enter the entry you want to update: ");
+        String update = keyboardInput.nextLine();
+        print("Enter body of the entry you want to update: ");
+        String body = keyboardInput.nextLine();
+        Entry newEntry = new Entry(update, body);
+        if (diary.updateDiary(oldInput, newEntry)){
+            print("Modified successfully");
+        }
+        else {
+            print("Modified unsuccessfully");
+            displayDiaryMenu();
+        }
     }
 }
 

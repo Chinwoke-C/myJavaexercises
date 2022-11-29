@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class DiaryTest {
+
    Diary amirahDiary;
     @DisplayName("Test that diary exists")
     @BeforeEach
@@ -42,7 +43,7 @@ public class DiaryTest {
         assertTrue(amirahDiary.isLocked());
     }
     @Test
-    public void happeningsCanBeAddedToTheDiary(){
+    public void EntriesCanBeAddedToTheDiary(){
         amirahDiary.unlockWith("correctPassword");
         assertFalse(amirahDiary.isLocked());
 

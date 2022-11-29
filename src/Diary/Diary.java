@@ -53,4 +53,26 @@ public class Diary {
 //        return entries.get(id-1);
         return null;
     }
+    public boolean updateDiary(Entry old, Entry newEntry){
+        int  findUpdate = searchDiaries(old);
+        if (findUpdate > 0){
+            entries.set(findUpdate, newEntry);
+            System.out.println(old.getTitle()+ " has been updated by "+ newEntry.getTitle());
+            return true;
+        }
+
+        return false;
+    }
+    public int searchDiaries(Entry entry){
+        return this.entries.indexOf(entry);
+    }
+    public Entry searchDiaries(String title){
+        for (int i = 0; i < this.entries.size(); i++) {
+            Entry heading = this.entries.get(i);
+            if (heading.getTitle().equalsIgnoreCase(title));
+            { return heading;}
+
+        }
+        return null;
+    }
 }
