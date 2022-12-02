@@ -73,4 +73,5 @@ public class DiaryTest {
         assertEquals("I did not do anything to him oh, He just came back one day and...",
                 foundEntry.getBody());
     }
+
 }

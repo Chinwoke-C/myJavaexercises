@@ -117,14 +117,15 @@ public class Main {
         String update = keyboardInput.nextLine();
         print("Enter body of the entry you want to update: ");
         String body = keyboardInput.nextLine();
-        Entry newEntry = new Entry(update, body);
-        if (diary.updateDiary(oldInput, newEntry)){
-            print("Modified successfully");
-        }
-        else {
-            print("Modified unsuccessfully");
-            displayDiaryMenu();
-        }
-    }
+//        Entry newEntry = new Entry(update, body);
+//        if (diary.updateDiary(oldInput, newEntry)){
+//            print("Modified successfully");
+//        }
+//        else {
+//            print("Modified unsuccessfully");
+//            displayDiaryMenu();
+//        }
+//    }
+}
 }
 
