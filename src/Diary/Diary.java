@@ -31,10 +31,11 @@ public class Diary {
     }
 
     public void write(String title, String body) {
-        if (!isLocked){
-            writeIntoDiary(title, body);
+        if (isLocked) throw new IllegalArgumentException("You cannot write into a locked diary");
+//        if (!isLocked){
+        writeIntoDiary(title, body);
         }
-    }
+
 
     private void writeIntoDiary(String title, String body) {
         int id = numberOfEntries() + 1;
@@ -74,5 +75,9 @@ public class Diary {
 
         }
         return null;
+    }
+
+    public void DeleteEntryWithId(int id) {
+        entries.remove(findEntryWithId(id));
     }
 }

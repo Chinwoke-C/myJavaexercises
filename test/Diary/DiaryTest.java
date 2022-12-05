@@ -54,9 +54,22 @@ public class DiaryTest {
     @Test
     public void entriesCannotBeAddedWhenDiaryIsLockedTest(){
         assertTrue(amirahDiary.isLocked());
-        amirahDiary.write("My breakup with Simi",
-                "I did not do anything to him oh, He just came back one day and...");
+        try {
+            amirahDiary.write("My breakup with Simi",
+                    "I did not do anything to him oh, He just came back one day and...");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
+    }
+    @Test
+    public void writingToLockedDiaryThrowsExceptionTest(){
+        assertTrue(amirahDiary.isLocked());
+
+        assertThrows(IllegalArgumentException.class, ()-> amirahDiary.write("My breakup with Simi",
+                "I did not do anything to him oh, He just came back one day and..."));
+
+//        assertEquals(0, amirahDiary.numberOfEntries());
     }
     @Test
     public void entriesCanBeViewedTest(){
@@ -72,6 +85,27 @@ public class DiaryTest {
         assertEquals("My breakup with Simi", foundEntry.getTitle());
         assertEquals("I did not do anything to him oh, He just came back one day and...",
                 foundEntry.getBody());
+    }
+    @Test
+    public void entriesCanBeViewedAndDeletedTest(){
+        amirahDiary.unlockWith("correctPassword");
+        assertFalse(amirahDiary.isLocked());
+
+        amirahDiary.write("My breakup with Simi",
+                "I did not do anything to him oh, He just came back one day and...");
+
+        amirahDiary.write("My life ooo",
+                "We all have everything to live for");
+
+        assertEquals(2, amirahDiary.numberOfEntries());
+
+
+
+         amirahDiary.DeleteEntryWithId(2);
+        assertEquals(1,amirahDiary.numberOfEntries());
+
+
+
     }
 
 }

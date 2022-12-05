@@ -49,21 +49,23 @@ public class PhoneBook {
     }
 
     public boolean deleteContactWithName(String name) {
-        for (Contact contact:contacts) {
-            if (contact.getName().equalsIgnoreCase(name))
-            { return contacts.remove(contact);}
-    }
+        for (Contact contact : contacts) {
+            if (contact.getName().equalsIgnoreCase(name)) {
+                return contacts.remove(contact);
+            }
+        }
         return false;
     }
+}
 
-    public int delete(int id) {
-
-        for (int i = 0; i < contacts.size(); i++) {
-            if (contact.get(i).equals(contact))
-                 contacts.remove(index);
-
-    }
-    }
+//    public int delete(int id) {
+//
+//        for (int i = 0; i < contacts.size(); i++) {
+//            if (contact.get(i).equals(contact))
+//                 contacts.remove(index);
+//
+//    }
+//    }
 //       id Contact contact = this.searchContactWithId(id);
 //
 //        int index = 0;

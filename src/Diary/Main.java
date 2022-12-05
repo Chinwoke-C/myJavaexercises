@@ -63,7 +63,7 @@ public class Main {
                 Press 2 -> Find Entry by Id
                 Press 3 -> Get total number of entries
                 Press 4 -> lock diary
-                press 5 -> update diary
+                press 5 -> deletedEntry
                 """;
         String userInput = input(diaryMenu);
         switch (Integer.parseInt(userInput)){
@@ -71,7 +71,7 @@ public class Main {
             case 2 : findById();
             case 3: getTotalNumberOfEntries();
             case 4: lockDiary();
-            case 5: updateDiary();
+            case 5: deleteEntry();
         }
 
     }
@@ -83,10 +83,14 @@ public class Main {
     }
 
     private static void findById() {
+        try {
         String Id = input("Enter the Id for the entry you want to find");
         Entry foundEntry = diary.findEntryWithId(Integer.parseInt(Id));
         print(foundEntry.toString());
         displayDiaryMenu();
+        } catch (RuntimeException e) {
+            System.out.println("The entry you are looking for has been deleted");
+        }
     }
 
     private static void createEntry() {
@@ -106,17 +110,17 @@ public class Main {
 //        System.out.println(prompt);
         JOptionPane.showMessageDialog(null, prompt);
     }
-    private static void updateDiary(){
-        print("Enter entry you want to be updated: ");
-        String input = keyboardInput.nextLine();
-        Entry oldInput = diary.searchDiaries(input);
-        if (oldInput == null){
-            print("Cannot find entry");
-        }
-        print("Enter the entry you want to update: ");
-        String update = keyboardInput.nextLine();
-        print("Enter body of the entry you want to update: ");
-        String body = keyboardInput.nextLine();
+//    private static void updateDiary(){
+//        print("Enter entry you want to be updated: ");
+//        String input = keyboardInput.nextLine();
+//        Entry oldInput = diary.searchDiaries(input);
+//        if (oldInput == null){
+//            print("Cannot find entry");
+//        }
+//        print("Enter the entry you want to update: ");
+//        String update = keyboardInput.nextLine();
+//        print("Enter body of the entry you want to update: ");
+//        String body = keyboardInput.nextLine();
 //        Entry newEntry = new Entry(update, body);
 //        if (diary.updateDiary(oldInput, newEntry)){
 //            print("Modified successfully");
@@ -126,6 +130,11 @@ public class Main {
 //            displayDiaryMenu();
 //        }
 //    }
+    private static void deleteEntry() {
+        String id = input("Enter id you want to be deleted");
+         diary.DeleteEntryWithId(Integer.parseInt(id));
+        print("deleted successfully");
+        displayDiaryMenu();
 }
 }
 
