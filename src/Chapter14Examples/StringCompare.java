@@ -1,4 +1,4 @@
-package Chapter15Examples;
+package Chapter14Examples;
 
 public class StringCompare {
     public static void main(String[] args) {
@@ -34,7 +34,7 @@ public class StringCompare {
         System.out.printf("%ns4.compareTo(s3) is %s", s4.compareTo(s3));
         //test regionMatches(case-sensitive)
         if (s3.regionMatches(0, s4, 0, 5)){
-            System.out.println("First 5 characters of s3 and s4");
+            System.out.println("First 5 characters of s3 and s4 matches");
         }
         else{
             System.out.println("First 5 characters of s3 and s4 do not match");
