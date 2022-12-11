@@ -6,19 +6,14 @@ public class Palindromes {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter a word");
-        String word = input.nextLine();
+        StringBuilder buffer = new StringBuilder(input.nextLine());
+        StringBuilder word2 = buffer.reverse();
+      if (buffer.equals(word2)){
+          System.out.println("it is palindrome");
+      }else {
+          System.out.println("Not a palindrome");
+      }
+
+
     }
-//    public static String reversedString(String word) {
-//        int count = word.length()-1;
-//        for (count = word.length() - 1; count >= 0; count--) {
-//
-//        }
-//        return count;
-//    }
-//    public static boolean isPalindrome(String word){
-//        System.out.println(word);
-//        String reverse = reversedString(word);
-//        if (word == re)
-//    }
-//}
 }
