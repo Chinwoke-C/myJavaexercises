@@ -13,13 +13,16 @@ public class CreditInquiry {
 
         MenuOption accountType = getRequest(input);
 
-        switch(accountType){
-            case ZERO_BALANCE -> print("Accounts with zero balances");
-            case CREDIT_BALANCE -> print("Accounts with credit balances");
-            case DEBIT_BALANCE -> print("Accounts with debit balances");
-            case END -> print("Thank you for using express inquiry");
-        }
 
+        while (accountType != MenuOption.END) {
+            switch (accountType) {
+                case ZERO_BALANCE -> print("Accounts with zero balances");
+                case CREDIT_BALANCE -> print("Accounts with credit balances");
+                case DEBIT_BALANCE -> print("Accounts with debit balances");
+            }
+            readRecords(accountType);
+            accountType = getRequest(input);
+        }
     }
     private static MenuOption getRequest(Scanner input) {
         int request = 4;
