@@ -10,8 +10,8 @@ import java.util.Scanner;
 
 public class CreateTextFile {
     public static void main(String[] args) {
-        try{
-            Formatter output = new Formatter("clients.txt");
+        try (Formatter output = new Formatter("clients.txt")){
+
             Scanner input = new Scanner(System.in);
             System.out.printf("%s%n%s%n?",
                     "Enter account number, first name, last name and balance.",
