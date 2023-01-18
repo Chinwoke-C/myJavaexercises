@@ -53,7 +53,29 @@ public class FakeDiaryTest {
         assertEquals(1,foundEntry.getId());
         assertEquals("The beginning of the end",foundEntry.getTitle());
         assertEquals("It all started on a blur sunny day...", foundEntry.getBody());
-
-
     }
-}
+    @Test
+    public void EntriesCanBeViewedAndDeleted(){
+        fakeDiary.UnlockWith("chi123");
+        assertFalse(fakeDiary.isLocked());
+        fakeDiary.write("The beginning of the end", "It all started on a blur sunny day...");
+        fakeDiary.write("The end is better than the beginning thereof",
+                "It all started on a bright rainy day...");
+        assertEquals(2, fakeDiary.numberOfEntries());
+
+        fakeDiary.deleteEntryById(1);
+        assertEquals(1,fakeDiary.numberOfEntries());
+    }
+    @Test
+    public void EntriesCanBeUpdated(){
+        fakeDiary.UnlockWith("chi123");
+        assertFalse(fakeDiary.isLocked());
+        fakeDiary.write("The beginning of the end", "It all started on a blur sunny day...");
+//        fakeDiary.write("The end is better than the beginning thereof",
+//                "It all started on a bright rainy day...");
+
+//        Entry entry = new Entry(fakeDiary.write("something special", "she wanna rock with the woo"));
+//        entry.update(fakeDiary);
+//        assertEquals(1, fakeDiary.numberOfEntries());
+//    }
+}}

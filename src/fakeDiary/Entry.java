@@ -36,4 +36,7 @@ public class Entry {
         sb.append('}');
         return sb.toString();
     }
+
+//    public void update(FakeDiary fakeDiary) {
+//    }
 }

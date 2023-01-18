@@ -1,7 +1,4 @@
-package ChapterSamp;
-
-import java.io.FileInputStream;
-import java.io.FileReader;
+package Chapter14Samp;
 
 public class Sample {
     public static void main(String[] args) {

@@ -42,6 +42,7 @@ public class FakeDiary {
     private void writeIntoDiary(String title, String body) {
         int id = numberOfEntries() + 1;
         Entry newEntry = new Entry(id, title, body);
+//        if (newEntry.getId() != 0) update(fakediary);
         entries.add(newEntry);
     }
 
@@ -54,5 +55,20 @@ public class FakeDiary {
             if (entry.getId() == id) return  entry;
         }
         return null;
+    }
+
+    public void deleteEntryById(int id) {
+        for (Entry entry : entries){
+            if (entry.getId()==id){
+                entries.remove(entry);
+            }
+        }
+        //entries.remove(findEntryById(id));
+
+    }
+
+    public void update(Entry update) {
+        Entry fake = findEntryById(update.getId());
+
     }
 }
