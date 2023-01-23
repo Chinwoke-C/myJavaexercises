@@ -27,9 +27,8 @@ public class FakeDiary {
     }
 
     public void lockWith(String password) {
-        boolean unlocked = UnlockWith(password);
         boolean passwordMatches = password.equals(this.password);
-        if (unlocked && passwordMatches){
+        if ( UnlockWith(password) && passwordMatches){
             isLocked = true;
         }
     }
