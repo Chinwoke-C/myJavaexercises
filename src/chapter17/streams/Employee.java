@@ -1,6 +1,6 @@
 package chapter17.streams;
 
-public class Employee {
+public class Employee  implements Comparable<Employee>{
     public String firstName;
     public String lastName;
     private double salary;
@@ -35,5 +35,10 @@ public class Employee {
     public String toString(){
         return String.format("%-8s %-8s %8.2f  %s", getFirstName(),
        getLastName(), getSalary(), getDepartment());
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        return this.firstName.compareTo(o.firstName);
     }
 }
